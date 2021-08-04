@@ -10,7 +10,36 @@ public class OOPCourse {
     @Test
     public void definingClassAndInstantiating() {
 
-        assert true;
+        Product product = new Product(
+                null,
+                null,
+                null
+        );
+
+        assert product.getSku() == null;
+
+        product.setSku("123456789");
+
+        assert product.getSku() != null;
+        assert product.getSku().equals("123456789");
+
+        Product otherProduct = new Product(
+                "1234567890",
+                "Meu celular quebrado",
+                "O celular está quebrado, mas ainda é bom. Se não tem interesse não incomode"
+        );
+
+        assert otherProduct.getSku() != null;
+        assert otherProduct.getName() != null;
+        assert otherProduct.getDescription() != null;
+
+        assert otherProduct.getSku().equals("1234567890");
+
+        otherProduct.setName("Meu celular topizera");
+
+        assert otherProduct.getName().equals("Meu celular topizera");
+
+        assert !otherProduct.equals(product);
     }
 
     /**
