@@ -1,6 +1,7 @@
 package com.invillia.store.product.entities;
 
 import java.math.BigDecimal;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
@@ -34,8 +35,8 @@ public class ProductBundle implements Product {
         this.description = description;
         this.priceModifierType = priceModifierType;
         this.priceModifier = priceModifier;
-        this.items = new LinkedList<>(items);
-        this.giftItems = new LinkedList<>(giftItems);
+        this.items = Collections.unmodifiableList(items);
+        this.giftItems = Collections.unmodifiableList(giftItems);
     }
 
     @Override
@@ -90,6 +91,8 @@ public class ProductBundle implements Product {
     }
 
     public List<Product> getItems() {
+        //return Collections.unmodifiableList(items);
+
         return new LinkedList<>(items);
     }
 
